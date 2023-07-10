@@ -1,6 +1,6 @@
-torchrun --nproc_per_node=4 --master_port=20001 fastchat/train/train_mem.py \
-    --model_name_or_path ~/model_weights/llama-7b  \
-    --data_path ~/datasets/sharegpt_20230422_clean_lang_split_identity.json \
+CUDA_VISIBLE_DEVICES=5 torchrun --nproc_per_node=1 --master_port=20001 fastchat/train/train_mem.py \
+    --model_name_or_path decapoda-research/llama-7b-hf  \
+    --data_path ~/data/dummy_conversation.json \
     --bf16 True \
     --output_dir output_vicuna_7b \
     --num_train_epochs 3 \
